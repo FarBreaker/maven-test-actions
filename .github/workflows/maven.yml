@@ -27,11 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: cd and build with Maven
-      run: cd siw-exam-individual && mvn -B package -DskipTests --file pom.xml
-    - name: check directory
-      run: ls -al && pwd
-
+    - name: Build With Maven
+      working-directory: ./siw-exam-individual
+      run: |
+        mvn -B package -DskipTests --file pom.xml
+        ls -al
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
