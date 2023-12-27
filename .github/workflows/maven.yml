@@ -32,10 +32,12 @@ jobs:
       run: |
         mvn -B package -DskipTests --file pom.xml
         cd target && ls -al
+        
     - name: Build Docker Image
       working-directory: ./siw-exam-individual
       run: | 
-        docker build -t test-maven .
+        docker build -t farbreaker/testing-maven .
+        docker push farbreaker/testing-maven
         docker images
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
