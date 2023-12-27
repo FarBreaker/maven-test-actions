@@ -35,7 +35,7 @@ jobs:
     - name: Build Docker Image
       working-directory: ./siw-exam-individual
       run: | 
-        docker build -t test-maven
+        docker build -t test-maven .
         docker images
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
