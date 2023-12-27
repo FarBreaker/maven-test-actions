@@ -36,7 +36,7 @@ jobs:
         working-directory: ./siw-exam-individual
         run: |
           docker build -t ${{secrets.DOCKER_USERNAME}}/testing-maven .
-          docker push ${{secretsl.DOCKER_USERNAME}}/testing-maven
+          docker push ${{secrets.DOCKER_USERNAME}}/testing-maven
           docker images
       - name: K8s apply
         uses: FarBreaker/kubectl@v0.0.4
