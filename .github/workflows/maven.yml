@@ -32,6 +32,13 @@ jobs:
       run: |
         mvn -B package -DskipTests --file pom.xml
         cd target && ls -al
+
+      
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+          username: farbreaker
+          password: dckr_pat_MZEQpGr8rFLami-C4baJdOasvUA
         
     - name: Build Docker Image
       working-directory: ./siw-exam-individual
