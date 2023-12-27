@@ -39,7 +39,8 @@ jobs:
           docker push ${{secrets.DOCKER_USERNAME}}/testing-maven
           docker images
       - name: K8s apply
-        uses: FarBreaker/kubectl@v0.0.4
+        # uses: FarBreaker/kubectl@v0.0.4
+        uses: Gabryel8818/kubectl@v1.0.1
         env:
           BASE64_KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.23.6"

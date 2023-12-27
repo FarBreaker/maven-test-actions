@@ -1,0 +1,21 @@
+# @format
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testing-maven-deployment-1
+  labels:
+    app: testing-maven-deployment-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testing-maven-deployment-1
+  template:
+    metadata:
+      labels:
+        app: testing-maven-deployment-1
+    spec:
+      containers:
+        - name: testing-maven-container-1
+          image: farbreaker/testing-maven
