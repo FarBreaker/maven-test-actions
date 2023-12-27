@@ -31,7 +31,8 @@ jobs:
       working-directory: ./siw-exam-individual
       run: |
         mvn -B package -DskipTests --file pom.xml
-        ls -al
+        cd target && ls -al
+        docker -v
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
