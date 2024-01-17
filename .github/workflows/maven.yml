@@ -23,7 +23,7 @@ jobs:
       - name: Build With Maven
         working-directory: ./siw-exam-individual
         run: |
-          mvn -B package -DskipTests --file pom.xml
+          mvn -B package -DskipTests -s /maven/setting/setting_custom.xml --file pom.xml
           cd target && ls -al
 
       - name: Login to Docker Hub
