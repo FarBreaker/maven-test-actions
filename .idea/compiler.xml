@@ -9,9 +9,6 @@
         <module name="siw-exam-individual" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="siw-exam-individual" target="11" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
