@@ -46,7 +46,7 @@ jobs:
           BASE64_KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.23.6"
         with:
-          args: apply -f deployment.yml
+          args: apply -f deployment.yml -n cicd
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
