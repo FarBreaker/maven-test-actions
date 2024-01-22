@@ -41,7 +41,7 @@ jobs:
       #     docker images
 
       - name: K8s apply
-        uses: FarBreaker/kubectl@v0.0.8
+        uses: FarBreaker/kubectl@v0.0.9
         env:
           BASE64_KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.23.6"
