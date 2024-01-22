@@ -20,25 +20,25 @@ jobs:
           java-version: "17"
           distribution: "temurin"
           cache: maven
-      - name: Build With Maven
-        working-directory: ./siw-exam-individual
-        run: |
-          mvn -B package -DskipTests -s /maven/setting/setting_custom.xml --file pom.xml
-          cd target && ls -al
+      # - name: Build With Maven
+      #   working-directory: ./siw-exam-individual
+      #   run: |
+      #     mvn -B package -DskipTests -s /maven/setting/setting_custom.xml --file pom.xml
+      #     cd target && ls -al
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          registry: tanzu-harbor.ourtde.com
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+      # - name: Login to Docker Hub
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: tanzu-harbor.ourtde.com
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
 
-      - name: Build Docker Image
-        working-directory: ./siw-exam-individual
-        run: |
-          docker build -t tanzu-harbor.ourtde.com/poclotto/testing-maven:0.0.1 .
-          docker push tanzu-harbor.ourtde.com/poclotto/testing-maven:0.0.1
-          docker images
+      # - name: Build Docker Image
+      #   working-directory: ./siw-exam-individual
+      #   run: |
+      #     docker build -t tanzu-harbor.ourtde.com/poclotto/testing-maven:0.0.1 .
+      #     docker push tanzu-harbor.ourtde.com/poclotto/testing-maven:0.0.1
+      #     docker images
 
       - name: K8s apply
         uses: FarBreaker/kubectl@v0.0.6
@@ -46,7 +46,7 @@ jobs:
           BASE64_KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.23.6"
         with:
-          args: apply -f deployment.yml -n cicd --kubeconfig=$HOME/.kube/cicd-svc-kubeconfig.yml; ls $HOME
+          args: apply -f deployment.yml -n cicd --kubeconfig=$HOME/.kube/cicd-svc-kubeconfig.yml
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
     # uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
