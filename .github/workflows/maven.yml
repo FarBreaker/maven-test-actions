@@ -44,7 +44,7 @@ jobs:
         uses: FarBreaker/kubectl@v0.0.13
         env:
           BASE64_KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBECTL_VERSION: "1.23.6"
+          KUBECTL_VERSION: "1.29.1"
         with:
           args: apply -f deployment.yml -n cicd --kubeconfig=cicd-svc-kubeconfig.yml
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
